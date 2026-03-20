@@ -711,11 +711,11 @@
                 // BTC: CoinGecko price + 24h change
                 // NOAA SWPC: Solar wind data
                 const [p, m, k, g, b] = await Promise.all([
-                    fetch('https://services.swpc.noaa.gov/products/solar-wind/plasma-5-minute.json').then(r => r.json()),
-                    fetch('https://services.swpc.noaa.gov/products/solar-wind/mag-5-minute.json').then(r => r.json()),
-                    fetch('https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json').then(r => r.json()),
-                    fetch('https://api.gdeltproject.org/api/v2/doc/doc?query=world&mode=timeline&timeline=sentiment&format=json').then(r => r.json()).catch(() => null),
-                    fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true').then(r => r.json()).catch(() => null)
+                    fetch(proxy + 'https://services.swpc.noaa.gov/products/solar-wind/plasma-5-minute.json').then(r => r.json()),
+                    fetch(proxy + 'https://services.swpc.noaa.gov/products/solar-wind/mag-5-minute.json').then(r => r.json()),
+                    fetch(proxy + 'https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json').then(r => r.json()),
+                    fetch(proxy + 'https://api.gdeltproject.org/api/v2/doc/doc?query=world&mode=timeline&timeline=sentiment&format=json').then(r => r.json()).catch(() => null),
+                    fetch(proxy + 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd&include_24hr_change=true').then(r => r.json()).catch(() => null)
                 ]);
 
                 if (p && p.length > 1) {
@@ -1103,3 +1103,4 @@
 </body>
 
 </html>
+
