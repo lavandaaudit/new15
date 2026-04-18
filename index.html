@@ -724,7 +724,7 @@
                 if (m && m.length > 1) {
                     const l = m[m.length - 1]; S.bx = parseFloat(l[1]); S.by = parseFloat(l[2]); S.bz = parseFloat(l[3]); S.phi = parseFloat(l[5]); S.bt = parseFloat(l[6]);
                 }
-                if (k && k.length > 1) S.kp = parseFloat(k[k.length - 1][1]) || 0;
+                if (k && k.length > 0) S.kp = parseFloat(k[k.length - 1].Kp) || 0;
                 
                 // GDELT Integration
                 if (g && g.timeline && g.timeline[0] && g.timeline[0].series && g.timeline[0].series[0].data) {
